@@ -25,7 +25,13 @@ const search = ref('');
 .header {
   width: 100%;
   background-color: $header_bg_color;
-
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-100;
+  height: 96px;
+  backdrop-filter: blur(5px);
   &__content {
     padding: 24px 0;
     display: flex;

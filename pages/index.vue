@@ -1,32 +1,18 @@
 <template>
-  <div class="container home__wrapper">
-    <NuxtImg :src="randomMovieQuery.posterUrl" alt="movie" />
-    {{randomMovieQuery}}
-  </div>
+	<div class="container home__page">
+		<RandomMovie />
+		<MoviesPreview />
+	</div>
 </template>
 
-<script setup lang="ts">
-const { data: randomMovieQuery, suspense: randomMovieSuspense } = useQuery({
-  queryKey: ['randomMovie'],
-  queryFn: () => useNuxtApp().$apiFetch('movie/random')
-})
-
-const top10MovieQuery = useQuery({
-  queryKey: ['top10movie'],
-  queryFn: () => useNuxtApp().$apiFetch('movie/top10')
-})
-
-onServerPrefetch(async () => {
-  await randomMovieSuspense,
-  await top10MovieQuery.suspense()
-})
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped lang="scss">
-.home {
-  &__wrapper {
-    position: relative;
-  }
+
+.home__page {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
 }
+
 </style>
