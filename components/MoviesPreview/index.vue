@@ -15,18 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-import type { IMovie } from '~/models/film';
 
-const {
-	data: top10MovieQuery,
-	suspense: top10MovieSuspense,
-	isPending: top10MovieIsPending,
-} = useQuery({
-	queryKey: ['top10movie'],
-	queryFn: () => useNuxtApp().$apiFetch<IMovie[]>('movie/top10'),
-});
-
-await top10MovieSuspense();
+const { top10MovieIsPending, top10MovieQuery } = useTop10Movie();
 
 </script>
 

@@ -14,8 +14,20 @@ export default defineNuxtConfig({
   css: [
     '~/assets/css/main.scss'
   ],
+  imports: {
+    dirs: [
+      'composables',
+      'composables/hooks/*/index.{ts,js,mjs,mts}'
+    ]
+  },
 
   modules: ["nuxt-svgo", "@hebilicious/vue-query-nuxt", "@nuxt/image"],
+
+  vueQuery: {
+    queryClientOptions: {
+      defaultOptions: { queries: { staleTime: 10_000 } }
+    },
+  },
 
   svgo: {
     defaultImport: 'component',

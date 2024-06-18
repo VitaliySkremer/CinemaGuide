@@ -2,6 +2,7 @@
 	<section class="random__movie">
 		<div class="random__movie__wrapper" v-if="!isPending && randomMovieQuery">
 			<NuxtImg
+				v-if="randomMovieQuery.backdropUrl"
 				loading="lazy"
 				class="random__movie--poster"
 				:src="randomMovieQuery.backdropUrl"
@@ -27,20 +28,10 @@
 </template>
 
 <script lang="ts" setup>
-import type { IMovie } from '~/models/film';
 import Like from '~/assets/img/Like.svg';
 import Swap from '~/assets/img/Swap.svg';
 
-const {
-	data: randomMovieQuery,
-	suspense: randomMovieSuspense,
-	isPending,
-} = useQuery({
-	queryKey: ['randomMovie'],
-	queryFn: () => useNuxtApp().$apiFetch<IMovie>('movie/random'),
-});
-
-await randomMovieSuspense();
+const { randomMovieQuery, isPending } = useRandomMovie();
 </script>
 
 <style scoped lang="scss">

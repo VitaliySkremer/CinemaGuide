@@ -2,6 +2,7 @@
 	<div @click="submit" class="movie__wrapper">
 		<div class="movie" :style="{ backgroundImage: `url(${movie.posterUrl})` }">
 			<NuxtImg
+				v-if="movie.posterUrl"
 				loading="lazy"
 				class="movie__poster"
 				:src="movie.posterUrl"
