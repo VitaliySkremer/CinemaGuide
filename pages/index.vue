@@ -12,7 +12,7 @@
 .home__page {
 	display: flex;
 	flex-direction: column;
-	gap: 40px;
+	gap: 64px;
 }
 
 </style>

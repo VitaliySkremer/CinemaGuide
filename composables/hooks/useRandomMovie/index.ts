@@ -6,6 +6,7 @@ export const useRandomMovie = () => {
 		suspense: randomMovieSuspense,
 		isPending,
 		isLoading,
+		isSuccess
 	} = useQuery({
 		queryKey: ['randomMovie'],
 		queryFn: () => useNuxtApp().$apiFetch<IMovie>('movie/random'),
@@ -19,5 +20,6 @@ export const useRandomMovie = () => {
 		randomMovieQuery,
 		isPending,
 		isLoading,
+		isSuccess
 	};
 };

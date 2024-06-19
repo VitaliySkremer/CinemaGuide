@@ -1,6 +1,6 @@
 <template>
 	<section class="random__movie">
-		<div class="random__movie__wrapper" v-if="!isPending && randomMovieQuery">
+		<div class="random__movie__wrapper" v-if="!isLoading && randomMovieQuery">
 			<NuxtImg
 				v-if="randomMovieQuery.backdropUrl"
 				loading="lazy"
@@ -31,7 +31,7 @@
 import Like from '~/assets/img/Like.svg';
 import Swap from '~/assets/img/Swap.svg';
 
-const { randomMovieQuery, isPending } = useRandomMovie();
+const { randomMovieQuery, isPending, isLoading } = useRandomMovie();
 </script>
 
 <style scoped lang="scss">
